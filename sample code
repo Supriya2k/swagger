@@ -1,1 +1,16 @@
+import requests
+url="https://deventb.elatior.dev/login"
 
+payload = "{\n  \"email\": \"bradley1@newworldwhiskey.com\",\n  \"password\": \"abc@123456789\",\n  \"orgtype\": \"buyer_ent\"\n}"
+headers = {
+  'Content-Type': 'application/json'
+}
+
+r= requests.request("POST", url, headers=headers, data = payload,stream=True)
+r.raw
+r.raise_for_status()
+r.history
+
+
+
+print(r.text.encode('utf8'))
